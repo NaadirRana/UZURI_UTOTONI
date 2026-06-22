@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>View Infants | Uzuri Utotoni</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>Dashboard</a></li>
+				<li><a href="dashboard.html#infant-registration"><i class="fa-solid fa-baby-carriage"></i>Infant Registration</a></li>
+				<li><a href="view-infants.html" class="active"><i class="fa-solid fa-table-list"></i>View Infants</a></li>
+				<li><a href="dashboard.html#immunization-schedules"><i class="fa-solid fa-shield-virus"></i>Immunization Schedules</a></li>
+				<li><a href="feeding-log.html"><i class="fa-solid fa-glass-water-droplet"></i>Feeding &amp; Nutrition Logs</a></li>
+				<li><a href="dashboard.html#audit-log"><i class="fa-solid fa-clipboard-user"></i>Audit Log Activities</a></li>
+			</ul>
+		</aside>
+
+		<main class="main">
+			<h1 class="page-title">View Infants</h1>
+			<p class="page-subtitle">Manage and review infant records from registered parents.</p>
+
+			<section class="card">
+				<div class="card-header">Infant Records</div>
+				<div class="table-wrap">
+					<table>
+						<thead>
+							<tr>
+								<th>Parent ID</th>
+								<th>Full Name</th>
+								<th>Gender</th>
+								<th>Date of Birth</th>
+								<th>Birth Weight (kg)</th>
+								<th>Blood Group</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>PR-1024</td>
+								<td>Amani Njeri</td>
+								<td><span class="gender-badge">Female</span></td>
+								<td>2025-02-14</td>
+								<td>3.2</td>
+								<td>O+</td>
+							</tr>
+							<tr>
+								<td>PR-1089</td>
+								<td>Leo Mwangi</td>
+								<td><span class="gender-badge">Male</span></td>
+								<td>2025-03-22</td>
+								<td>3.6</td>
+								<td>A-</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</section>
+		</main>
+	</div>
+	<script src="sidebar-active.js"></script>
+</body>
+</html>

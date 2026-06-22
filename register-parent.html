@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Uzuri Utotoni | Parent Registration</title>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="auth-page">
+	<main class="auth-card" aria-labelledby="register-title">
+		<div class="brand">UZURI UTOTONI</div>
+		<h1 id="register-title">Parent Registration</h1>
+		<p class="subtitle">Create your account to track your infant's health journey.</p>
+
+		<form action="insert_parent.php" method="POST" class="form-grid" id="parent-register-form">
+			<div class="field">
+				<label for="full_name">Full Name</label>
+				<input type="text" id="full_name" name="full_name" required />
+			</div>
+
+			<div class="field">
+				<label for="phone_number">Phone Number</label>
+				<input type="tel" id="phone_number" name="phone_number" placeholder="e.g., +254..." />
+			</div>
+
+			<div class="field">
+				<label for="email">Email Address</label>
+				<input type="email" id="email" name="email" autocomplete="username" autocapitalize="off" spellcheck="false" required />
+			</div>
+
+			<div class="field">
+				<label for="password_hash">Create Account Password</label>
+				<input type="password" id="password_hash" name="password_hash" autocomplete="new-password" minlength="8" required />
+				<div class="password-strength" aria-live="polite">
+					<div class="strength-label">Password strength: <span id="strength-text">Too weak</span></div>
+					<div class="strength-track">
+						<div class="strength-fill" id="strength-fill"></div>
+					</div>
+					<p class="strength-hint">Use at least 8 characters with uppercase, lowercase, number, and symbol.</p>
+				</div>
+			</div>
+
+			<div class="field">
+				<label for="confirm_password">Confirm Password</label>
+				<input type="password" id="confirm_password" autocomplete="new-password" required />
+			</div>
+
+			<button type="submit">Create Parent Account</button>
+		</form>
+
+		<p class="register-link-wrap">Already have an account? <a href="login.html">Login here</a></p>
+	</main>
+
+	<script>
+		(function () {
+			var passwordInput = document.getElementById('password_hash');
+			var confirmInput = document.getElementById('confirm_password');
+			var strengthFill = document.getElementById('strength-fill');
+			var strengthText = document.getElementById('strength-text');
+
+			function getStrength(password) {
+				var score = 0;
+				if (password.length >= 8) score++;
+				if (/[a-z]/.test(password)) score++;
+				if (/[A-Z]/.test(password)) score++;
+				if (/\d/.test(password)) score++;
+				if (/[^A-Za-z0-9]/.test(password)) score++;
+				return score;
+			}
+
+			function paintStrength(score) {
+				var width = (score / 5) * 100;
+				strengthFill.style.width = width + '%';
+
+				if (score <= 2) {
+					strengthFill.style.background = '#d14343';
+					strengthText.textContent = 'Too weak';
+				} else if (score === 3) {
+					strengthFill.style.background = '#d88d1f';
+					strengthText.textContent = 'Fair';
+				} else if (score === 4) {
+					strengthFill.style.background = '#2f9c63';
+					strengthText.textContent = 'Good';
+				} else {
+					strengthFill.style.background = '#1f4b8f';
+					strengthText.textContent = 'Strong';
+				}
+			}
+
+			function validatePasswords() {
+				var score = getStrength(passwordInput.value);
+				paintStrength(score);
+
+				if (passwordInput.value.length > 0 && score < 4) {
+					passwordInput.setCustomValidity('Please create a stronger password.');
+				} else {
+					passwordInput.setCustomValidity('');
+				}
+
+				if (confirmInput.value && confirmInput.value !== passwordInput.value) {
+					confirmInput.setCustomValidity('Passwords do not match.');
+				} else {
+					confirmInput.setCustomValidity('');
+				}
+			}
+
+			passwordInput.addEventListener('input', validatePasswords);
+			confirmInput.addEventListener('input', validatePasswords);
+		})();
+	</script>
+</body>
+</html>
