@@ -40,11 +40,6 @@
 				</div>
 			</div>
 
-			<div class="field">
-				<label for="confirm_password">Confirm Password</label>
-				<input type="password" id="confirm_password" autocomplete="new-password" required />
-			</div>
-
 			<button type="submit">Create Parent Account</button>
 		</form>
 
@@ -54,7 +49,6 @@
 	<script>
 		(function () {
 			var passwordInput = document.getElementById('password_hash');
-			var confirmInput = document.getElementById('confirm_password');
 			var strengthFill = document.getElementById('strength-fill');
 			var strengthText = document.getElementById('strength-text');
 
@@ -96,16 +90,9 @@
 				} else {
 					passwordInput.setCustomValidity('');
 				}
-
-				if (confirmInput.value && confirmInput.value !== passwordInput.value) {
-					confirmInput.setCustomValidity('Passwords do not match.');
-				} else {
-					confirmInput.setCustomValidity('');
-				}
 			}
 
 			passwordInput.addEventListener('input', validatePasswords);
-			confirmInput.addEventListener('input', validatePasswords);
 		})();
 	</script>
 </body>

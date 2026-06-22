@@ -431,6 +431,74 @@ button:focus-visible {
 	color: var(--text-muted);
 }
 
+.appointment-alert {
+	margin-top: 16px;
+	padding: 12px 14px;
+	border-radius: 10px;
+	font-size: 0.93rem;
+	font-weight: 600;
+	border: 1px solid transparent;
+}
+
+.appointment-alert-success {
+	background: #e8f8ee;
+	border-color: #bde8cb;
+	color: #1f7a4a;
+}
+
+.appointment-list-card {
+	margin-top: 18px;
+}
+
+.appointment-list {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.appointment-item {
+	border: 1px solid var(--border);
+	border-left: 4px solid var(--primary);
+	border-radius: 10px;
+	padding: 12px;
+	background: #fafdff;
+}
+
+.appointment-item-header {
+	font-size: 0.94rem;
+	font-weight: 700;
+	color: var(--primary-dark);
+	margin-bottom: 4px;
+}
+
+.appointment-item-meta {
+	font-size: 0.88rem;
+	color: #365a8f;
+	margin-bottom: 4px;
+}
+
+.appointment-item-reason {
+	font-size: 0.88rem;
+	color: var(--text-muted);
+}
+
+.appointment-empty {
+	border: 1px dashed #c7d9f5;
+	border-radius: 10px;
+	padding: 12px;
+	font-size: 0.9rem;
+	color: var(--text-muted);
+	background: #fafdff;
+}
+
+.btn.is-loading,
+button.is-loading {
+	opacity: 0.88;
+	cursor: wait;
+	transform: none;
+}
+
 @media (max-width: 1180px) {
 	.stats-grid {
 		grid-template-columns: repeat(2, minmax(220px, 1fr));

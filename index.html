@@ -14,24 +14,13 @@
 
 		<form action="login_process.php" method="POST" class="form-grid">
 			<div class="field">
-				<label for="role">User Role</label>
-				<select id="role" name="role" required>
-					<option value="" disabled selected>Select role</option>
-					<option value="parent">Parent / Guardian</option>
-					<option value="nurse">Nurse</option>
-					<option value="doctor">Doctor</option>
-					<option value="administrator">System Administrator</option>
-				</select>
-			</div>
-
-			<div class="field">
 				<label for="email">Email Address</label>
 				<input type="email" id="email" name="email" autocomplete="username" autocapitalize="off" spellcheck="false" required />
 			</div>
 
 			<div class="field">
-				<label for="password">Password</label>
-				<input type="password" id="password" name="password" autocomplete="current-password" minlength="8" required />
+				<label for="password_hash">Password</label>
+				<input type="password" id="password_hash" name="password_hash" autocomplete="current-password" minlength="8" required />
 			</div>
 
 			<button type="submit">Login to Portal</button>

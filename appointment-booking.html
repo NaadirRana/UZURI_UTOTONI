@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Uzuri Utotoni | Appointment Booking</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>Dashboard</a></li>
+				<li><a href="dashboard.html#infant-registration"><i class="fa-solid fa-baby-carriage"></i>Infant Registration</a></li>
+				<li><a href="view-infants.html"><i class="fa-solid fa-table-list"></i>View Infants</a></li>
+				<li><a href="appointment-booking.html" class="active"><i class="fa-solid fa-calendar-check"></i>Appointment Booking</a></li>
+				<li><a href="dashboard.html#immunization-schedules"><i class="fa-solid fa-shield-virus"></i>Immunization Schedules</a></li>
+				<li><a href="feeding-log.html"><i class="fa-solid fa-glass-water-droplet"></i>Feeding &amp; Nutrition Logs</a></li>
+				<li><a href="dashboard.html#audit-log"><i class="fa-solid fa-clipboard-user"></i>Audit Log Activities</a></li>
+			</ul>
+		</aside>
+
+		<main class="main">
+			<h1 class="page-title">Appointment Booking</h1>
+			<p class="page-subtitle">Book a consultation with your preferred doctor or clinic.</p>
+
+			<section class="card">
+				<h2>Book New Appointment</h2>
+				<form action="#" method="POST" id="appointment-booking-form" data-endpoint="/api/appointment">
+					<input type="hidden" id="requested_by_parent" name="requested_by_parent" value="1" />
+					<div class="form-grid">
+						<div class="field">
+							<label for="infant_id">Infant ID</label>
+							<input type="number" id="infant_id" name="infant_id" min="1" required />
+						</div>
+
+						<div class="field">
+							<label for="doctor_id">Doctor ID</label>
+							<select id="doctor_id" name="doctor_id" required>
+								<option value="" disabled selected>Select doctor_id</option>
+								<option value="1">1 - Dr. N. Achieng (Pediatric Clinic)</option>
+								<option value="2">2 - Dr. P. Mwangi (Neonatal Unit)</option>
+								<option value="3">3 - Dr. S. Wanjiru (Immunization)</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label for="appointment_date">Date</label>
+							<input type="date" id="appointment_date" name="appointment_date" required />
+						</div>
+
+						<div class="field">
+							<label for="appointment_time">Appointment Time</label>
+							<input type="time" id="appointment_time" name="appointment_time" required />
+						</div>
+
+						<div class="field full">
+							<label for="status">Status</label>
+							<select id="status" name="status" required>
+								<option value="" disabled selected>Select status</option>
+								<option value="Scheduled">Scheduled</option>
+								<option value="Pending">Pending</option>
+								<option value="Confirmed">Confirmed</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="actions">
+						<button type="submit" class="btn" id="book-appointment-btn">Book Appointment</button>
+					</div>
+				</form>
+
+				<div id="appointment-feedback" class="appointment-alert appointment-alert-success" role="status" aria-live="polite" hidden></div>
+			</section>
+
+			<section class="card appointment-list-card">
+				<h2>Upcoming Appointments</h2>
+				<ul id="upcoming-appointments" class="appointment-list">
+					<li class="appointment-empty">No appointments booked yet.</li>
+				</ul>
+			</section>
+		</main>
+	</div>
+	<script src="sidebar-active.js"></script>
+	<script src="frontend-submit-placeholder.js"></script>
+</body>
+</html>
