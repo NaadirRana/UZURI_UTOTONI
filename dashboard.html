@@ -3,276 +3,71 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Uzuri Utotoni Dashboard</title>
-	<style>
-		:root {
-			--bg: #f2f7fb;
-			--surface: #ffffff;
-			--sidebar-top: #0a4f6d;
-			--sidebar-bottom: #0f7a8e;
-			--primary: #0d9488;
-			--primary-dark: #0b766d;
-			--text: #17324d;
-			--muted: #68809b;
-			--border: #dbe7f0;
-			--shadow-soft: 0 14px 40px rgba(16, 42, 67, 0.12);
-			--shadow-card: 0 10px 30px rgba(16, 42, 67, 0.1);
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		body {
-			margin: 0;
-			min-height: 100vh;
-			font-family: "Segoe UI", "Trebuchet MS", sans-serif;
-			color: var(--text);
-			background:
-				radial-gradient(circle at 10% 10%, rgba(13, 148, 136, 0.12), transparent 45%),
-				radial-gradient(circle at 90% 85%, rgba(10, 79, 109, 0.1), transparent 40%),
-				var(--bg);
-		}
-
-		.dashboard {
-			display: grid;
-			grid-template-columns: 270px 1fr;
-			min-height: 100vh;
-		}
-
-		.sidebar {
-			background: linear-gradient(180deg, var(--sidebar-top), var(--sidebar-bottom));
-			color: #e7f8ff;
-			padding: 28px 22px;
-			display: flex;
-			flex-direction: column;
-			box-shadow: var(--shadow-soft);
-		}
-
-		.logo {
-			display: flex;
-			align-items: center;
-			gap: 12px;
-			margin-bottom: 36px;
-		}
-
-		.logo-mark {
-			width: 44px;
-			height: 44px;
-			border-radius: 12px;
-			background: rgba(255, 255, 255, 0.2);
-			display: grid;
-			place-items: center;
-			font-weight: 700;
-			border: 1px solid rgba(255, 255, 255, 0.25);
-		}
-
-		.logo h1 {
-			margin: 0;
-			font-size: 1.08rem;
-			letter-spacing: 0.3px;
-			line-height: 1.2;
-		}
-
-		.nav-links {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			margin-top: 4px;
-		}
-
-		.nav-links a {
-			text-decoration: none;
-			color: #e7f8ff;
-			padding: 12px 14px;
-			border-radius: 12px;
-			background: rgba(255, 255, 255, 0.08);
-			border: 1px solid rgba(255, 255, 255, 0.12);
-			font-weight: 600;
-			transition: transform 0.2s ease, background 0.2s ease;
-		}
-
-		.nav-links a:hover,
-		.nav-links a:focus-visible {
-			background: rgba(255, 255, 255, 0.18);
-			transform: translateX(2px);
-			outline: none;
-		}
-
-		.content {
-			padding: 42px clamp(20px, 4vw, 56px);
-			display: grid;
-			place-items: start center;
-		}
-
-		.form-card {
-			width: min(100%, 760px);
-			background: var(--surface);
-			border-radius: 20px;
-			padding: clamp(22px, 4vw, 36px);
-			box-shadow: var(--shadow-card);
-			border: 1px solid var(--border);
-		}
-
-		.form-card h2 {
-			margin: 0 0 8px;
-			font-size: clamp(1.4rem, 2vw, 1.8rem);
-			color: #0f3f63;
-		}
-
-		.form-card p {
-			margin: 0 0 24px;
-			color: var(--muted);
-			font-size: 0.98rem;
-		}
-
-		form {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			gap: 18px;
-		}
-
-		.form-group {
-			display: flex;
-			flex-direction: column;
-			gap: 8px;
-		}
-
-		.form-group.full {
-			grid-column: 1 / -1;
-		}
-
-		label {
-			font-weight: 600;
-			font-size: 0.95rem;
-			color: #214463;
-		}
-
-		input,
-		select {
-			width: 100%;
-			padding: 12px 14px;
-			border: 1px solid var(--border);
-			border-radius: 12px;
-			font: inherit;
-			color: var(--text);
-			background: #fbfdff;
-			transition: border-color 0.2s ease, box-shadow 0.2s ease;
-		}
-
-		input:focus,
-		select:focus {
-			outline: none;
-			border-color: #55b9af;
-			box-shadow: 0 0 0 4px rgba(13, 148, 136, 0.15);
-		}
-
-		.submit-btn {
-			grid-column: 1 / -1;
-			margin-top: 8px;
-			padding: 14px 20px;
-			border: none;
-			border-radius: 12px;
-			font-size: 1rem;
-			font-weight: 700;
-			letter-spacing: 0.3px;
-			color: #ffffff;
-			background: linear-gradient(135deg, var(--primary), #0f766e);
-			box-shadow: 0 10px 18px rgba(13, 148, 136, 0.28);
-			cursor: pointer;
-			transition: transform 0.2s ease, filter 0.2s ease;
-		}
-
-		.submit-btn:hover,
-		.submit-btn:focus-visible {
-			transform: translateY(-1px);
-			filter: brightness(1.03);
-			outline: none;
-		}
-
-		@media (max-width: 900px) {
-			.dashboard {
-				grid-template-columns: 1fr;
-			}
-
-			.sidebar {
-				padding: 20px;
-			}
-
-			.content {
-				padding-top: 18px;
-			}
-		}
-
-		@media (max-width: 620px) {
-			form {
-				grid-template-columns: 1fr;
-			}
-		}
-	</style>
+	<title>Uzuri Utotoni | Dashboard</title>
+	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-	<div class="dashboard">
-		<aside class="sidebar" aria-label="Sidebar Navigation">
-			<div class="logo">
-				<div class="logo-mark">UU</div>
-				<h1>Uzuri Utotoni<br />Hospital Dashboard</h1>
-			</div>
-
-			<nav class="nav-links" aria-label="Main Navigation">
-				<a href="dashboard.html">Register New Infant</a>
-				<a href="view-infants.html">View All Infants</a>
-			</nav>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a class="active" href="dashboard.html">Dashboard</a></li>
+				<li><a href="feeding-log.html">Feeding Log</a></li>
+				<li><a href="view-infants.html">View Infants</a></li>
+			</ul>
 		</aside>
 
-		<main class="content">
-			<section class="form-card">
-				<h2>Infant Registration Form</h2>
-				<p>Capture accurate newborn details for quality neonatal care tracking.</p>
+		<main class="main">
+			<h1 class="page-title">Dashboard</h1>
+			<p class="page-subtitle">Infant registration and care management</p>
 
-				<form method="POST" action="insert_infant.php">
-					<div class="form-group full">
-						<label for="infant-name">Infant Name</label>
-						<input
-							type="text"
-							id="infant-name"
-							name="infant_name"
-							placeholder="Enter infant full name"
-							required
-						/>
+			<section class="card">
+				<h2>Infant Registration</h2>
+				<form action="#" method="post" data-endpoint="/api/infants">
+					<div class="form-grid">
+						<div class="field">
+							<label for="parent_id">Parent ID</label>
+							<input type="number" id="parent_id" name="parent_id" required />
+						</div>
+
+						<div class="field">
+							<label for="full_name">Full Name</label>
+							<input type="text" id="full_name" name="full_name" required />
+						</div>
+
+						<div class="field">
+							<label for="gender">Gender</label>
+							<select id="gender" name="gender" required>
+								<option value="" disabled selected>Select gender</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label for="date_of_birth">Date of Birth</label>
+							<input type="date" id="date_of_birth" name="date_of_birth" required />
+						</div>
+
+						<div class="field">
+							<label for="birth_weight">Birth Weight</label>
+							<input type="number" step="0.01" id="birth_weight" name="birth_weight" required />
+						</div>
+
+						<div class="field">
+							<label for="blood_group">Blood Group</label>
+							<input type="text" id="blood_group" name="blood_group" required />
+						</div>
 					</div>
 
-					<div class="form-group">
-						<label for="gender">Gender</label>
-						<select id="gender" name="gender" required>
-							<option value="" selected disabled>Select gender</option>
-							<option value="Male">Male</option>
-							<option value="Female">Female</option>
-						</select>
+					<div class="actions">
+						<button type="submit" class="btn">Register Infant</button>
 					</div>
-
-					<div class="form-group">
-						<label for="dob">Date of Birth</label>
-						<input type="date" id="dob" name="date_of_birth" required />
-					</div>
-
-					<div class="form-group full">
-						<label for="weight">Birth Weight (kg)</label>
-						<input
-							type="number"
-							id="weight"
-							name="birth_weight"
-							min="0"
-							step="0.01"
-							placeholder="e.g. 3.20"
-							required
-						/>
-					</div>
-
-					<button class="submit-btn" type="submit">Register Infant</button>
 				</form>
+				<p class="page-subtitle" style="margin-top: 14px; margin-bottom: 0;">Frontend note: submit is placeholder only. Backend team should connect this form to <strong>/api/infants</strong>.</p>
 			</section>
 		</main>
 	</div>
+	<script src="frontend-submit-placeholder.js"></script>
 </body>
 </html>

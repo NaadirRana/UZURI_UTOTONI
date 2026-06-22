@@ -3,211 +3,55 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Uzuri Utotoni - View All Infants</title>
-	<style>
-		:root {
-			--bg: #f2f7fb;
-			--surface: #ffffff;
-			--sidebar-top: #0a4f6d;
-			--sidebar-bottom: #0f7a8e;
-			--primary: #0d9488;
-			--primary-dark: #0b766d;
-			--text: #17324d;
-			--muted: #68809b;
-			--border: #dbe7f0;
-			--shadow-soft: 0 14px 40px rgba(16, 42, 67, 0.12);
-			--shadow-card: 0 10px 30px rgba(16, 42, 67, 0.1);
-		}
-
-		* {
-			box-sizing: border-box;
-		}
-
-		body {
-			margin: 0;
-			min-height: 100vh;
-			font-family: "Segoe UI", "Trebuchet MS", sans-serif;
-			color: var(--text);
-			background:
-				radial-gradient(circle at 10% 10%, rgba(13, 148, 136, 0.12), transparent 45%),
-				radial-gradient(circle at 90% 85%, rgba(10, 79, 109, 0.1), transparent 40%),
-				var(--bg);
-		}
-
-		.dashboard {
-			display: grid;
-			grid-template-columns: 270px 1fr;
-			min-height: 100vh;
-		}
-
-		.sidebar {
-			background: linear-gradient(180deg, var(--sidebar-top), var(--sidebar-bottom));
-			color: #e7f8ff;
-			padding: 28px 22px;
-			display: flex;
-			flex-direction: column;
-			box-shadow: var(--shadow-soft);
-		}
-
-		.logo {
-			display: flex;
-			align-items: center;
-			gap: 12px;
-			margin-bottom: 36px;
-		}
-
-		.logo-mark {
-			width: 44px;
-			height: 44px;
-			border-radius: 12px;
-			background: rgba(255, 255, 255, 0.2);
-			display: grid;
-			place-items: center;
-			font-weight: 700;
-			border: 1px solid rgba(255, 255, 255, 0.25);
-		}
-
-		.logo h1 {
-			margin: 0;
-			font-size: 1.08rem;
-			letter-spacing: 0.3px;
-			line-height: 1.2;
-		}
-
-		.nav-links {
-			display: flex;
-			flex-direction: column;
-			gap: 10px;
-			margin-top: 4px;
-		}
-
-		.nav-links a {
-			text-decoration: none;
-			color: #e7f8ff;
-			padding: 12px 14px;
-			border-radius: 12px;
-			background: rgba(255, 255, 255, 0.08);
-			border: 1px solid rgba(255, 255, 255, 0.12);
-			font-weight: 600;
-			transition: transform 0.2s ease, background 0.2s ease;
-		}
-
-		.nav-links a:hover,
-		.nav-links a:focus-visible {
-			background: rgba(255, 255, 255, 0.18);
-			transform: translateX(2px);
-			outline: none;
-		}
-
-		.content {
-			padding: 42px clamp(20px, 4vw, 56px);
-			display: grid;
-			place-items: start center;
-		}
-
-		.form-card {
-			width: min(100%, 980px);
-			background: var(--surface);
-			border-radius: 20px;
-			padding: clamp(22px, 4vw, 36px);
-			box-shadow: var(--shadow-card);
-			border: 1px solid var(--border);
-		}
-
-		.form-card h2 {
-			margin: 0 0 8px;
-			font-size: clamp(1.4rem, 2vw, 1.8rem);
-			color: #0f3f63;
-		}
-
-		.form-card p {
-			margin: 0 0 24px;
-			color: var(--muted);
-			font-size: 0.98rem;
-		}
-
-		.table-wrap {
-			overflow-x: auto;
-			border: 1px solid var(--border);
-			border-radius: 14px;
-			background: #fbfdff;
-		}
-
-		table {
-			width: 100%;
-			border-collapse: collapse;
-			min-width: 760px;
-		}
-
-		thead th {
-			text-align: left;
-			padding: 14px 16px;
-			background: rgba(13, 148, 136, 0.12);
-			color: #12415e;
-			font-size: 0.92rem;
-			font-weight: 700;
-			border-bottom: 1px solid var(--border);
-		}
-
-		tbody td {
-			padding: 14px 16px;
-			border-bottom: 1px solid var(--border);
-			color: var(--text);
-			font-size: 0.94rem;
-		}
-
-		tbody tr:last-child td {
-			border-bottom: none;
-		}
-
-		@media (max-width: 900px) {
-			.dashboard {
-				grid-template-columns: 1fr;
-			}
-
-			.sidebar {
-				padding: 20px;
-			}
-
-			.content {
-				padding-top: 18px;
-			}
-		}
-	</style>
+	<title>View Infants | Uzuri Utotoni</title>
+	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-	<div class="dashboard">
-		<aside class="sidebar" aria-label="Sidebar Navigation">
-			<div class="logo">
-				<div class="logo-mark">UU</div>
-				<h1>Uzuri Utotoni<br />Hospital Dashboard</h1>
-			</div>
-
-			<nav class="nav-links" aria-label="Main Navigation">
-				<a href="dashboard.html">Register New Infant</a>
-				<a href="view-infants.html">View All Infants</a>
-			</nav>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a href="dashboard.html">Dashboard</a></li>
+				<li><a href="feeding-log.html">Feeding Log</a></li>
+				<li><a href="view-infants.html" class="active">View Infants</a></li>
+			</ul>
 		</aside>
 
-		<main class="content">
-			<section class="form-card">
-				<h2>Active Inpatient Roster</h2>
-				<p>Monitor all admitted infants and their current care status in real time.</p>
+		<main class="main">
+			<h1 class="page-title">View Infants</h1>
+			<p class="page-subtitle">Manage and review infant records from registered parents.</p>
 
+			<section class="card">
+				<div class="card-header">Infant Records</div>
 				<div class="table-wrap">
-					<table aria-label="Active Inpatient Roster Table">
+					<table>
 						<thead>
 							<tr>
-								<th>Tracking ID</th>
-								<th>Infant Name</th>
+								<th>Parent ID</th>
+								<th>Full Name</th>
 								<th>Gender</th>
 								<th>Date of Birth</th>
 								<th>Birth Weight (kg)</th>
-								<th>Care Status</th>
+								<th>Blood Group</th>
 							</tr>
 						</thead>
 						<tbody>
-							<!-- Leon: Insert PHP while-loop output rows here from live database query -->
+							<tr>
+								<td>PR-1024</td>
+								<td>Amani Njeri</td>
+								<td><span class="gender-badge">Female</span></td>
+								<td>2025-02-14</td>
+								<td>3.2</td>
+								<td>O+</td>
+							</tr>
+							<tr>
+								<td>PR-1089</td>
+								<td>Leo Mwangi</td>
+								<td><span class="gender-badge">Male</span></td>
+								<td>2025-03-22</td>
+								<td>3.6</td>
+								<td>A-</td>
+							</tr>
 						</tbody>
 					</table>
 				</div>
