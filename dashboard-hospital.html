@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Uzuri Utotoni | Hospital Dashboard</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a class="active" href="dashboard-hospital.html"><i class="fa-solid fa-chart-pie"></i>Hospital Overview</a></li>
+				<li><a href="#infant-registration"><i class="fa-solid fa-baby-carriage"></i>Register an Infant</a></li>
+				<li><a href="view-infants.html"><i class="fa-solid fa-table-list"></i>Monitor Patient Registry</a></li>
+				<li><a href="feeding-log.html"><i class="fa-solid fa-glass-water-droplet"></i>Record Feeding Log</a></li>
+				<li><a href="vaccination-update.html"><i class="fa-solid fa-shield-virus"></i>Update Vaccinations</a></li>
+				<li><a href="growth-record.html"><i class="fa-solid fa-chart-line"></i>Update Growth Record</a></li>
+				<li><a href="monitor-infant.html"><i class="fa-solid fa-heart-pulse"></i>Monitor an Infant</a></li>
+				<li><a href="diagnosis-record.html"><i class="fa-solid fa-stethoscope"></i>Diagnose an Infant</a></li>
+				<li><a href="treatment-prescription.html"><i class="fa-solid fa-prescription"></i>Prescribe Treatment</a></li>
+				<li><a href="procedure-log.html"><i class="fa-solid fa-notes-medical"></i>Record Procedure</a></li>
+				<li><a href="infant-assessment.html"><i class="fa-solid fa-file-waveform"></i>Assess Infant</a></li>
+				<li><a href="admin-user-management.html"><i class="fa-solid fa-user-gear"></i>Create User / Assign Role</a></li>
+				<li><a href="admin-audit-log.html"><i class="fa-solid fa-clipboard-user"></i>View Audit Log</a></li>
+				<li><a href="admin-reports.html"><i class="fa-solid fa-chart-column"></i>Generate Reports</a></li>
+				<li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+			</ul>
+		</aside>
+
+		<main class="main">
+			<h1 class="page-title">Hospital Infant Care Dashboard</h1>
+			<p class="page-subtitle">Centralized monitoring for neonatal registrations, ward flow, and daily clinical priorities.</p>
+
+			<section class="stats-grid" aria-label="Clinical Summary Statistics">
+				<article class="stat-card bg-blue">
+					<div class="stat-head">
+						<div class="stat-title">Total Infants Logged</div>
+						<i class="fa-solid fa-baby"></i>
+					</div>
+					<div class="stat-value" data-metric="total_infants_logged">--</div>
+					<span class="stat-tag tag-stable">Updated Today</span>
+				</article>
+
+				<article class="stat-card bg-green">
+					<div class="stat-head">
+						<div class="stat-title">Vaccinations Scheduled Today</div>
+						<i class="fa-solid fa-syringe"></i>
+					</div>
+					<div class="stat-value" data-metric="vaccinations_scheduled_today">--</div>
+					<span class="stat-tag tag-good">On Track</span>
+				</article>
+
+				<article class="stat-card bg-amber" id="vaccination-updates">
+					<div class="stat-head">
+						<div class="stat-title">Active Room / Ward Occupancy</div>
+						<i class="fa-solid fa-bed-pulse"></i>
+					</div>
+					<div class="stat-value" data-metric="active_ward_occupancy">--</div>
+					<span class="stat-tag tag-watch">Monitor Capacity</span>
+				</article>
+
+				<article class="stat-card bg-rose">
+					<div class="stat-head">
+						<div class="stat-title">Awaiting Discharge Clearance</div>
+						<i class="fa-solid fa-file-medical"></i>
+					</div>
+					<div class="stat-value" data-metric="awaiting_discharge_clearance">--</div>
+					<span class="stat-tag tag-alert">Pending Review</span>
+				</article>
+			</section>
+
+			<section id="infant-registration" class="card">
+				<h2>Infant Registration</h2>
+				<form action="#" method="post" data-endpoint="/api/infant">
+					<div class="form-grid">
+						<div class="field">
+							<label for="parent_id">Parent ID</label>
+							<input type="number" id="parent_id" name="parent_id" min="1" required />
+						</div>
+
+						<div class="field">
+							<label for="full_name">Full Name</label>
+							<input type="text" id="full_name" name="full_name" maxlength="100" required />
+						</div>
+
+						<div class="field">
+							<label for="gender">Gender</label>
+							<select id="gender" name="gender" required>
+								<option value="" disabled selected>Select gender</option>
+								<option value="Male">Male</option>
+								<option value="Female">Female</option>
+							</select>
+						</div>
+
+						<div class="field">
+							<label for="date_of_birth">Date of Birth</label>
+							<input type="date" id="date_of_birth" name="date_of_birth" required />
+						</div>
+
+						<div class="field">
+							<label for="birth_weight">Birth Weight</label>
+							<input type="number" step="0.01" id="birth_weight" name="birth_weight" required />
+						</div>
+
+						<div class="field">
+							<label for="blood_group">Blood Group</label>
+							<input type="text" id="blood_group" name="blood_group" maxlength="5" required />
+						</div>
+					</div>
+
+					<div class="actions">
+						<button type="submit" class="btn">Register Infant</button>
+					</div>
+				</form>
+			</section>
+		</main>
+	</div>
+	<script src="role-access.js"></script>
+	<script src="sidebar-active.js"></script>
+	<script src="frontend-submit-placeholder.js"></script>
+</body>
+</html>

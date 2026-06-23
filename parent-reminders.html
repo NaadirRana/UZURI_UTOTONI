@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Uzuri Utotoni | Parent Reminders</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>My Child's Dashboard</a></li>
+				<li><a href="appointment-booking.html"><i class="fa-solid fa-calendar-check"></i>Request Appointment</a></li>
+				<li><a href="parent-vaccination.html"><i class="fa-solid fa-shield-virus"></i>Immunization Timeline</a></li>
+				<li><a class="active" href="parent-reminders.html"><i class="fa-solid fa-bell"></i>View Reminders</a></li>
+				<li><a href="parent-feedback.html"><i class="fa-solid fa-comment-dots"></i>Submit Feedback</a></li>
+				<li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+			</ul>
+		</aside>
+
+		<main class="main">
+			<h1 class="page-title">Care Reminders</h1>
+			<p class="page-subtitle">Stay on top of immunizations, appointments, and follow-up care milestones.</p>
+
+			<section class="card">
+				<h2>Before You Continue</h2>
+				<p class="page-subtitle" style="margin: 0;">Please register your infant first so reminder alerts can be generated for your child profile.</p>
+			</section>
+
+			<section class="stats-grid" aria-label="Reminder Summary" style="margin-top: 18px;">
+				<article class="stat-card bg-blue">
+					<div class="stat-head">
+						<div class="stat-title">Upcoming Vaccine Alerts</div>
+						<i class="fa-solid fa-syringe"></i>
+					</div>
+					<div class="stat-value">2</div>
+					<span class="stat-tag tag-watch">Next Due: 5 Days</span>
+				</article>
+				<article class="stat-card bg-green">
+					<div class="stat-head">
+						<div class="stat-title">Upcoming Appointments</div>
+						<i class="fa-solid fa-calendar-days"></i>
+					</div>
+					<div class="stat-value">1</div>
+					<span class="stat-tag tag-good">Confirmed</span>
+				</article>
+			</section>
+
+			<section class="card" style="margin-top: 18px;">
+				<div class="card-header">Reminder Feed</div>
+				<ul class="appointment-list">
+					<li class="appointment-item">
+						<div class="appointment-item-header">BCG Follow-Up Reminder</div>
+						<div class="appointment-item-meta">Due Date: 2026-07-01</div>
+						<div class="appointment-item-reason">Please attend your scheduled vaccination clinic.</div>
+					</li>
+					<li class="appointment-item">
+						<div class="appointment-item-header">Doctor Review Appointment</div>
+						<div class="appointment-item-meta">Date: 2026-06-28 at 10:00</div>
+						<div class="appointment-item-reason">Review weight progression and feeding notes.</div>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</div>
+	<script src="sidebar-active.js"></script>
+</body>
+</html>

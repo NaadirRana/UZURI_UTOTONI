@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Uzuri Utotoni | Submit Feedback</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>My Child's Dashboard</a></li>
+				<li><a href="appointment-booking.html"><i class="fa-solid fa-calendar-check"></i>Request Appointment</a></li>
+				<li><a href="parent-vaccination.html"><i class="fa-solid fa-shield-virus"></i>Immunization Timeline</a></li>
+				<li><a href="parent-reminders.html"><i class="fa-solid fa-bell"></i>View Reminders</a></li>
+				<li><a class="active" href="parent-feedback.html"><i class="fa-solid fa-comment-dots"></i>Submit Feedback</a></li>
+				<li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+			</ul>
+		</aside>
+
+		<main class="main">
+			<h1 class="page-title">Submit Feedback</h1>
+			<p class="page-subtitle">Share your experience and help improve infant care services.</p>
+
+			<section class="card">
+				<h2>Before You Continue</h2>
+				<p class="page-subtitle" style="margin: 0;">Please register your infant first so feedback is linked to the correct infant care journey.</p>
+			</section>
+
+			<section class="card" style="margin-top: 18px;">
+				<h2>Feedback Form</h2>
+				<form action="#" method="POST" data-endpoint="/api/feedback">
+					<div class="form-grid">
+						<div class="field">
+							<label for="parent_id">Parent ID</label>
+							<input type="number" id="parent_id" name="parent_id" min="1" required />
+						</div>
+						<div class="field full">
+							<label for="feedback_details">Feedback Details</label>
+							<textarea id="feedback_details" name="feedback_details" required placeholder="Describe your concern or suggestion"></textarea>
+						</div>
+					</div>
+					<div class="actions">
+						<button type="submit" class="btn">Submit Feedback</button>
+					</div>
+				</form>
+			</section>
+		</main>
+	</div>
+	<script src="sidebar-active.js"></script>
+	<script src="frontend-submit-placeholder.js"></script>
+</body>
+</html>

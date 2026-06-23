@@ -12,101 +12,58 @@
 		<aside class="sidebar">
 			<div class="brand">UZURI UTOTONI</div>
 			<ul class="nav-links">
-				<li><a class="active" href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>Dashboard</a></li>
-				<li><a href="#infant-registration"><i class="fa-solid fa-baby-carriage"></i>Infant Registration</a></li>
-				<li><a href="view-infants.html"><i class="fa-solid fa-table-list"></i>View Infants</a></li>
-				<li><a href="appointment-booking.html"><i class="fa-solid fa-calendar-check"></i>Appointment Booking</a></li>
-				<li><a href="#immunization-schedules"><i class="fa-solid fa-shield-virus"></i>Immunization Schedules</a></li>
-				<li><a href="feeding-log.html"><i class="fa-solid fa-glass-water-droplet"></i>Feeding &amp; Nutrition Logs</a></li>
-				<li><a href="#audit-log"><i class="fa-solid fa-clipboard-user"></i>Audit Log Activities</a></li>
+				<li><a class="active" href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>My Child's Dashboard</a></li>
+				<li><a href="appointment-booking.html"><i class="fa-solid fa-calendar-check"></i>Request Appointment</a></li>
+				<li><a href="parent-vaccination.html"><i class="fa-solid fa-shield-virus"></i>Immunization Timeline</a></li>
+				<li><a href="parent-reminders.html"><i class="fa-solid fa-bell"></i>View Reminders</a></li>
+				<li><a href="parent-feedback.html"><i class="fa-solid fa-comment-dots"></i>Submit Feedback</a></li>
+				<li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
 			</ul>
 		</aside>
 
 		<main class="main">
-			<h1 class="page-title">Hospital Infant Care Dashboard</h1>
-			<p class="page-subtitle">Centralized monitoring for neonatal registrations, ward flow, and daily clinical priorities.</p>
+			<h1 class="page-title">Parent Dashboard</h1>
+			<p class="page-subtitle">Track your infant's care journey, upcoming immunizations, and care team updates in one place.</p>
 
-			<section class="stats-grid" aria-label="Clinical Summary Statistics">
+			<section class="card">
+				<h2>Before You Continue</h2>
+				<p class="page-subtitle" style="margin: 0;">Please register your infant at the hospital registration desk first. Once linked to your parent account, you can continue with appointments, reminders, vaccinations, and feedback.</p>
+			</section>
+
+			<section class="stats-grid" aria-label="Parent Dashboard Summary" style="margin-top: 18px;">
 				<article class="stat-card bg-blue">
 					<div class="stat-head">
-						<div class="stat-title">Total Infants Logged</div>
+						<div class="stat-title">My Infant's Profile Summary</div>
 						<i class="fa-solid fa-baby"></i>
 					</div>
-					<div class="stat-value" data-metric="total_infants_logged">--</div>
-					<span class="stat-tag tag-stable">Updated Today</span>
+					<div class="stat-value">Name: Baby Amina</div>
+					<div class="stat-value">DOB: 2026-02-14</div>
+					<div class="stat-value">Weight: 4.2 kg</div>
+					<span class="stat-tag tag-stable">Profile Snapshot</span>
 				</article>
 
 				<article class="stat-card bg-green">
 					<div class="stat-head">
-						<div class="stat-title">Vaccinations Scheduled Today</div>
+						<div class="stat-title">Next Immunization Alert</div>
 						<i class="fa-solid fa-syringe"></i>
 					</div>
-					<div class="stat-value" data-metric="vaccinations_scheduled_today">--</div>
-					<span class="stat-tag tag-good">On Track</span>
+					<div class="stat-value">BCG Vaccine - Upcoming</div>
+					<span class="stat-tag tag-good">Due in 5 Days</span>
 				</article>
 
-				<article class="stat-card bg-amber">
+				<article class="stat-card bg-amber" id="vaccination-schedules">
 					<div class="stat-head">
-						<div class="stat-title">Active Room / Ward Occupancy</div>
-						<i class="fa-solid fa-bed-pulse"></i>
+						<div class="stat-title">Recent Doctor Notes</div>
+						<i class="fa-solid fa-notes-medical"></i>
 					</div>
-					<div class="stat-value" data-metric="active_ward_occupancy">--</div>
-					<span class="stat-tag tag-watch">Monitor Capacity</span>
-				</article>
-
-				<article class="stat-card bg-rose">
-					<div class="stat-head">
-						<div class="stat-title">Awaiting Discharge Clearance</div>
-						<i class="fa-solid fa-file-medical"></i>
-					</div>
-					<div class="stat-value" data-metric="awaiting_discharge_clearance">--</div>
-					<span class="stat-tag tag-alert">Pending Review</span>
+					<div class="stat-value">"Stable progress and normal feeding observed."</div>
+					<span class="stat-tag tag-watch">Dr. P. Mwangi, Yesterday</span>
 				</article>
 			</section>
 
-			<section id="infant-registration" class="card">
-				<h2>Infant Registration</h2>
-				<form action="#" method="post" data-endpoint="/api/infant">
-					<div class="form-grid">
-						<div class="field">
-							<label for="parent_id">Parent ID</label>
-							<input type="number" id="parent_id" name="parent_id" required />
-						</div>
-
-						<div class="field">
-							<label for="full_name">Full Name</label>
-							<input type="text" id="full_name" name="full_name" maxlength="100" required />
-						</div>
-
-						<div class="field">
-							<label for="gender">Gender</label>
-							<select id="gender" name="gender" required>
-								<option value="" disabled selected>Select gender</option>
-								<option value="Male">Male</option>
-								<option value="Female">Female</option>
-							</select>
-						</div>
-
-						<div class="field">
-							<label for="date_of_birth">Date of Birth</label>
-							<input type="date" id="date_of_birth" name="date_of_birth" required />
-						</div>
-
-						<div class="field">
-							<label for="birth_weight">Birth Weight</label>
-							<input type="number" step="0.01" id="birth_weight" name="birth_weight" required />
-						</div>
-
-						<div class="field">
-							<label for="blood_group">Blood Group</label>
-							<input type="text" id="blood_group" name="blood_group" maxlength="5" required />
-						</div>
-					</div>
-
-					<div class="actions">
-						<button type="submit" class="btn">Register Infant</button>
-					</div>
-				</form>
+			<section id="submit-feedback" class="card">
+				<h2>Parent Action Center</h2>
+				<p class="page-subtitle" style="margin: 0;">Use Request Appointment for clinical follow-up, open Immunization Timeline for vaccine schedules, check reminders for due alerts, and submit concerns through the feedback module.</p>
 			</section>
 		</main>
 	</div>

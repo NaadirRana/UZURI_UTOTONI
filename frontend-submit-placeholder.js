@@ -49,16 +49,18 @@ document.addEventListener('DOMContentLoaded', function () {
 			var feedbackBox = document.getElementById('appointment-feedback');
 			var upcomingList = document.getElementById('upcoming-appointments');
 
+			var infantNameInput = document.getElementById('infant_name');
 			var infantInput = document.getElementById('infant_id');
 			var doctorSelect = document.getElementById('doctor_id');
 			var dateInput = document.getElementById('appointment_date');
 			var timeInput = document.getElementById('appointment_time');
 			var statusSelect = document.getElementById('status');
 
-			if (!submitButton || !feedbackBox || !upcomingList || !infantInput || !doctorSelect || !dateInput || !timeInput || !statusSelect) {
+			if (!submitButton || !feedbackBox || !upcomingList || !infantNameInput || !infantInput || !doctorSelect || !dateInput || !timeInput || !statusSelect) {
 				return;
 			}
 
+			var selectedInfantName = infantNameInput.value;
 			var selectedInfantId = infantInput.value;
 			var selectedDoctorId = doctorSelect.value;
 			var selectedDoctorLabel = doctorSelect.options[doctorSelect.selectedIndex].text;
@@ -82,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 
 				var newItem = buildAppointmentItem(
-					'infant_id: ' + selectedInfantId,
+					selectedInfantName + ' (infant_id: ' + selectedInfantId + ')',
 					selectedDate,
 					selectedTime,
 					'doctor_id: ' + selectedDoctorId + ' (' + selectedDoctorLabel + '), status: ' + selectedStatus

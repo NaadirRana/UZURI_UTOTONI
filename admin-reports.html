@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Uzuri Utotoni | Reports</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="brand">UZURI UTOTONI</div>
+			<ul class="nav-links">
+				<li><a href="dashboard-hospital.html"><i class="fa-solid fa-chart-pie"></i>Hospital Overview</a></li>
+				<li><a href="dashboard-hospital.html#infant-registration"><i class="fa-solid fa-baby-carriage"></i>Register an Infant</a></li>
+				<li><a href="view-infants.html"><i class="fa-solid fa-table-list"></i>Monitor Patient Registry</a></li>
+				<li><a href="feeding-log.html"><i class="fa-solid fa-glass-water-droplet"></i>Record Feeding Log</a></li>
+				<li><a href="vaccination-update.html"><i class="fa-solid fa-shield-virus"></i>Update Vaccinations</a></li>
+				<li><a href="growth-record.html"><i class="fa-solid fa-chart-line"></i>Update Growth Record</a></li>
+				<li><a href="monitor-infant.html"><i class="fa-solid fa-heart-pulse"></i>Monitor an Infant</a></li>
+				<li><a href="diagnosis-record.html"><i class="fa-solid fa-stethoscope"></i>Diagnose an Infant</a></li>
+				<li><a href="treatment-prescription.html"><i class="fa-solid fa-prescription"></i>Prescribe Treatment</a></li>
+				<li><a href="procedure-log.html"><i class="fa-solid fa-notes-medical"></i>Record Procedure</a></li>
+				<li><a href="infant-assessment.html"><i class="fa-solid fa-file-waveform"></i>Assess Infant</a></li>
+				<li><a href="admin-user-management.html"><i class="fa-solid fa-user-gear"></i>Create User / Assign Role</a></li>
+				<li><a href="admin-audit-log.html"><i class="fa-solid fa-clipboard-user"></i>View Audit Log</a></li>
+				<li><a href="admin-reports.html" class="active"><i class="fa-solid fa-chart-column"></i>Generate Reports</a></li>
+				<li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
+			</ul>
+		</aside>
+
+		<main class="main">
+			<h1 class="page-title">Healthcare Reports</h1>
+			<p class="page-subtitle">Compile operational and clinical summaries for management review.</p>
+
+			<section class="card">
+				<h2>Generate Report</h2>
+				<form action="#" method="POST" data-endpoint="/api/admin/reports">
+					<div class="form-grid">
+						<div class="field">
+							<label for="report_type">Report Type</label>
+							<select id="report_type" name="report_type" required>
+								<option value="" disabled selected>Select report type</option>
+								<option value="infant-summary">Infant Registration Summary</option>
+								<option value="vaccination-coverage">Vaccination Coverage</option>
+								<option value="appointment-activity">Appointment Activity</option>
+								<option value="audit-compliance">Audit Compliance</option>
+							</select>
+						</div>
+						<div class="field">
+							<label for="from_date">From Date</label>
+							<input type="date" id="from_date" name="from_date" required />
+						</div>
+						<div class="field">
+							<label for="to_date">To Date</label>
+							<input type="date" id="to_date" name="to_date" required />
+						</div>
+					</div>
+					<div class="actions">
+						<button type="submit" class="btn">Generate Report</button>
+					</div>
+				</form>
+			</section>
+
+			<section class="stats-grid" aria-label="Report Snapshot" style="margin-top: 18px;">
+				<article class="stat-card bg-blue">
+					<div class="stat-head">
+						<div class="stat-title">Infants Registered</div>
+						<i class="fa-solid fa-baby"></i>
+					</div>
+					<div class="stat-value">184</div>
+					<span class="stat-tag tag-stable">Current Month</span>
+				</article>
+				<article class="stat-card bg-green">
+					<div class="stat-head">
+						<div class="stat-title">Vaccination Coverage</div>
+						<i class="fa-solid fa-syringe"></i>
+					</div>
+					<div class="stat-value">91%</div>
+					<span class="stat-tag tag-good">Upward Trend</span>
+				</article>
+				<article class="stat-card bg-rose">
+					<div class="stat-head">
+						<div class="stat-title">Critical Alerts</div>
+						<i class="fa-solid fa-triangle-exclamation"></i>
+					</div>
+					<div class="stat-value">4</div>
+					<span class="stat-tag tag-alert">Needs Follow-up</span>
+				</article>
+			</section>
+		</main>
+	</div>
+	<script src="role-access.js"></script>
+	<script src="sidebar-active.js"></script>
+	<script src="frontend-submit-placeholder.js"></script>
+</body>
+</html>

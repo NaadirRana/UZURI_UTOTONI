@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Uzuri Utotoni | Feeding Log</title>
+	<title>Uzuri Utotoni | Treatment Prescription</title>
 	<link rel="stylesheet" href="styles.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
@@ -15,12 +15,12 @@
 				<li><a href="dashboard-hospital.html"><i class="fa-solid fa-chart-pie"></i>Hospital Overview</a></li>
 				<li><a href="dashboard-hospital.html#infant-registration"><i class="fa-solid fa-baby-carriage"></i>Register an Infant</a></li>
 				<li><a href="view-infants.html"><i class="fa-solid fa-table-list"></i>Monitor Patient Registry</a></li>
-				<li><a href="feeding-log.html" class="active"><i class="fa-solid fa-glass-water-droplet"></i>Record Feeding Log</a></li>
+				<li><a href="feeding-log.html"><i class="fa-solid fa-glass-water-droplet"></i>Record Feeding Log</a></li>
 				<li><a href="vaccination-update.html"><i class="fa-solid fa-shield-virus"></i>Update Vaccinations</a></li>
 				<li><a href="growth-record.html"><i class="fa-solid fa-chart-line"></i>Update Growth Record</a></li>
 				<li><a href="monitor-infant.html"><i class="fa-solid fa-heart-pulse"></i>Monitor an Infant</a></li>
 				<li><a href="diagnosis-record.html"><i class="fa-solid fa-stethoscope"></i>Diagnose an Infant</a></li>
-				<li><a href="treatment-prescription.html"><i class="fa-solid fa-prescription"></i>Prescribe Treatment</a></li>
+				<li><a href="treatment-prescription.html" class="active"><i class="fa-solid fa-prescription"></i>Prescribe Treatment</a></li>
 				<li><a href="procedure-log.html"><i class="fa-solid fa-notes-medical"></i>Record Procedure</a></li>
 				<li><a href="infant-assessment.html"><i class="fa-solid fa-file-waveform"></i>Assess Infant</a></li>
 				<li><a href="admin-user-management.html"><i class="fa-solid fa-user-gear"></i>Create User / Assign Role</a></li>
@@ -31,39 +31,30 @@
 		</aside>
 
 		<main class="main">
-			<h1 class="page-title">Feeding Log</h1>
-			<p class="page-subtitle">Record and track infant feeding sessions</p>
+			<h1 class="page-title">Treatment Prescription</h1>
+			<p class="page-subtitle">Capture prescribed treatment linked to an existing diagnosis.</p>
 
 			<section class="card">
-				<h2>Add Feeding Record</h2>
-				<form action="#" method="POST" data-endpoint="/api/feeding_record">
+				<h2>Prescribe Treatment</h2>
+				<form action="#" method="POST" data-endpoint="/api/treatment">
 					<div class="form-grid">
-					<div class="field">
-						<label for="infant_id">Infant ID</label>
-						<input type="number" id="infant_id" name="infant_id" min="1" required />
+						<div class="field">
+							<label for="diagnosis_id">Diagnosis ID</label>
+							<input type="number" id="diagnosis_id" name="diagnosis_id" min="1" required />
+						</div>
+						<div class="field full">
+							<label for="prescription">Prescription</label>
+							<textarea id="prescription" name="prescription" required placeholder="Medication and treatment plan"></textarea>
+						</div>
+						<div class="field full">
+							<label for="treatment_date">Treatment Date</label>
+							<input type="date" id="treatment_date" name="treatment_date" required />
+						</div>
 					</div>
-
-					<div class="field">
-						<label for="nurse_id">Nurse ID</label>
-						<input type="number" id="nurse_id" name="nurse_id" min="1" required />
-					</div>
-
-					<div class="field">
-						<label for="feeding_time">Feeding Time</label>
-						<input type="datetime-local" id="feeding_time" name="feeding_time" />
-					</div>
-
-					<div class="field full">
-						<label for="feeding_notes">Feeding Notes</label>
-						<textarea id="feeding_notes" name="feeding_notes" placeholder="Enter notes..."></textarea>
-					</div>
-					</div>
-
 					<div class="actions">
-						<button type="submit" class="btn">Save Feeding Log</button>
+						<button type="submit" class="btn">Save Treatment</button>
 					</div>
 				</form>
-				<p class="page-subtitle" style="margin-top: 14px; margin-bottom: 0;">Frontend note: submit is placeholder only. Backend team should connect this form to <strong>/api/feeding_record</strong>.</p>
 			</section>
 		</main>
 	</div>

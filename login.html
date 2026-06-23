@@ -14,6 +14,17 @@
 
 		<form action="login_process.php" method="POST" class="form-grid">
 			<div class="field">
+				<label for="user_role">Access Portal As</label>
+				<select id="user_role" name="user_role" required>
+					<option value="" disabled selected>Select access role</option>
+					<option value="Parent / Guardian">Parent / Guardian</option>
+					<option value="Nurse / Clinical Staff">Nurse / Clinical Staff</option>
+					<option value="Medical Doctor">Medical Doctor</option>
+					<option value="System Administrator">System Administrator</option>
+				</select>
+			</div>
+
+			<div class="field">
 				<label for="email">Email Address</label>
 				<input type="email" id="email" name="email" autocomplete="username" autocapitalize="off" spellcheck="false" required />
 			</div>
@@ -28,5 +39,6 @@
 
 		<p class="register-link-wrap">New parent? <a href="register-parent.html">Create an account here</a></p>
 	</main>
+	<script src="role-access.js"></script>
 </body>
 </html>

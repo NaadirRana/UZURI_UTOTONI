@@ -12,13 +12,12 @@
 		<aside class="sidebar">
 			<div class="brand">UZURI UTOTONI</div>
 			<ul class="nav-links">
-				<li><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>Dashboard</a></li>
-				<li><a href="dashboard.html#infant-registration"><i class="fa-solid fa-baby-carriage"></i>Infant Registration</a></li>
-				<li><a href="view-infants.html"><i class="fa-solid fa-table-list"></i>View Infants</a></li>
-				<li><a href="appointment-booking.html" class="active"><i class="fa-solid fa-calendar-check"></i>Appointment Booking</a></li>
-				<li><a href="dashboard.html#immunization-schedules"><i class="fa-solid fa-shield-virus"></i>Immunization Schedules</a></li>
-				<li><a href="feeding-log.html"><i class="fa-solid fa-glass-water-droplet"></i>Feeding &amp; Nutrition Logs</a></li>
-				<li><a href="dashboard.html#audit-log"><i class="fa-solid fa-clipboard-user"></i>Audit Log Activities</a></li>
+				<li><a href="dashboard.html"><i class="fa-solid fa-chart-pie"></i>My Child's Dashboard</a></li>
+				<li><a href="appointment-booking.html" class="active"><i class="fa-solid fa-calendar-check"></i>Request Appointment</a></li>
+				<li><a href="parent-vaccination.html"><i class="fa-solid fa-shield-virus"></i>Immunization Timeline</a></li>
+				<li><a href="parent-reminders.html"><i class="fa-solid fa-bell"></i>View Reminders</a></li>
+				<li><a href="parent-feedback.html"><i class="fa-solid fa-comment-dots"></i>Submit Feedback</a></li>
+				<li><a href="login.html"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
 			</ul>
 		</aside>
 
@@ -27,10 +26,20 @@
 			<p class="page-subtitle">Book a consultation with your preferred doctor or clinic.</p>
 
 			<section class="card">
+				<h2>Before You Continue</h2>
+				<p class="page-subtitle" style="margin: 0;">Please register your infant first and confirm your infant account link before booking appointments.</p>
+			</section>
+
+			<section class="card" style="margin-top: 18px;">
 				<h2>Book New Appointment</h2>
 				<form action="#" method="POST" id="appointment-booking-form" data-endpoint="/api/appointment">
 					<input type="hidden" id="requested_by_parent" name="requested_by_parent" value="1" />
 					<div class="form-grid">
+						<div class="field">
+							<label for="infant_name">Infant Name</label>
+							<input type="text" id="infant_name" name="infant_name" maxlength="100" required />
+						</div>
+
 						<div class="field">
 							<label for="infant_id">Infant ID</label>
 							<input type="number" id="infant_id" name="infant_id" min="1" required />
